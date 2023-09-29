@@ -1,0 +1,13 @@
+.container{
+    margin: 100px;
+}
+
+form{
+    margin-bottom: 32px;
+}
+
+li{
+    list-style-type: none;
+    margin: 10px;
+}
+
