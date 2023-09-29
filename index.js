@@ -41,6 +41,15 @@
         console.log(event.target.id);
 
         const button= document.getElementById(event.target.id);
+
+        if (document.getElementById("textboxtodoupdate")){
+            updatetodo(event);
+            button.innerText="Edit"
+            return;
+
+        }
+
+        
         const labelid= event.target.id.toString().replace("editbtn","todo");    
         const label = document.getElementById(labelid);
         button.innerText="save";
@@ -54,6 +63,27 @@
         const li=document.getElementById(liid);
         
         li.innerHTML=textbox+li.innerHTML;
+
+
+    }
+
+
+    function updatetodo(event){ 
+
+        const textb = document.getElementById("textboxtodoupdate");
+
+        const label=document.createElement("label");
+
+        label.innerHTML=textb.value;
+        label.id="todo"+event.target.id.replace("editbtn","");
+        label.style.width="70%";
+
+        const liid=event.target.id.replace("editbtn","listitem");
+        const li = document.getElementById(liid);
+        li.replaceChild(label,textb);
+        
+
+
 
 
     }
