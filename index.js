@@ -24,9 +24,9 @@
 
        
         const liopening="<li id=listitem"+todos.length+">";
-        const label="<label id=todo"+todos.length+" style='width:70%'>" +text+"</label>";
+        const label="<label id=todo"+todos.length+" style='width:80%'>" +text+"</label>";
         const editbutton="<button id=editbtn"+todos.length+" onclick='handleeditclick(event)' class='btn btn-primary'>Edit</button>&nbsp;&nbsp;&nbsp;"; 
-        const deletebutton="<button class='btn btn-danger'>Delete</button>";
+        const deletebutton="<button id=dbtn"+todos.length+" onclick='delettodo(event)' class='btn btn-danger'>Delete</button>";
         const liclosing="</li>";
         const li = liopening+label+editbutton+deletebutton+liclosing;
 
@@ -76,14 +76,21 @@
 
         label.innerHTML=textb.value;
         label.id="todo"+event.target.id.replace("editbtn","");
-        label.style.width="70%";
+        label.style.width="80%";
 
         const liid=event.target.id.replace("editbtn","listitem");
         const li = document.getElementById(liid);
         li.replaceChild(label,textb);
         
+    }
 
+    function delettodo(event){
 
+        const button = document.getElementById(event.target.id);
+
+        const li = button.parentElement;
+
+        document.getElementById("todolist").removeChild(li);
 
 
     }
